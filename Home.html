@@ -25,7 +25,7 @@
     </header>
 
     <section class="Home">
-        <video class="video-slide" src="teste.mp4" autoplay muted loop></video>
+        <video class="video-slide" src="dança.mp4" autoplay muted loop></video>
         <div class="content">
             <h1>Lilo & <br><span>Stich</span></h1>
             <p>O tal lilo e stich tal</p>
@@ -39,6 +39,15 @@
         </div>
         
     </section>
+
+    <script>
+        var menubtn = document.querySelector(".menu-btn");
+        var navigation = document.querySelector(".navigation");
+        menubtn.addEventListener("click", () => {
+            menubtn.classList.toggle("active");
+            navigation.classList.toggle("active");
+        })
+    </script>
     
 </body>
 </html>
