@@ -26,6 +26,8 @@
 
     <section class="Home">
         <video class="video-slide" src="dança.mp4" autoplay muted loop></video>
+        <video class="video-slide" src="sorvete.mp4" autoplay muted loop></video>
+        <video class="video-slide" src="surf.mp4" autoplay muted loop></video>
         <div class="content">
             <h1>Lilo & <br><span>Stich</span></h1>
             <p>O tal lilo e stich tal</p>
@@ -37,6 +39,12 @@
             <a href="#"> <i class="fab fa-instagram"></i></a>
             <a href="#"> <i class="fab fa-twitter"></i></a>
         </div>
+
+        <div class="slider-navigation">
+            <div class="nav-btn active"></div>
+            <div class="nav-btn"></div>
+            <div class="nav-btn"></div>
+        </div>
         
     </section>
 
@@ -46,7 +54,28 @@
         menubtn.addEventListener("click", () => {
             menubtn.classList.toggle("active");
             navigation.classList.toggle("active");
-        })
+        });
+
+        var btns = document.querySelectorAll(".nav-btn");
+        var slides = document.querySelectorAll(".video-slide");
+        var slidernav = function(manual){
+            btns.forEach((btn) =>{
+                btn.classList.remove("active");
+            });
+
+            slides.forEach((slide) =>{
+                slide.classList.remove("active");
+            });
+
+            btns[manual].classList.add("active");
+            slides[manual].classList.add("active");
+        }
+
+        btns.forEach((btn, i) => {
+            btn.addEventListener("click", () => {
+                slidernav(i);
+            });
+        });
     </script>
     
 </body>

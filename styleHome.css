@@ -105,7 +105,7 @@ section{
     border-radius: 2px;
 }
 
-.home .media-icons{
+.Home .media-icons{
     z-index: 888;
     position: absolute;
     right: 30px;
@@ -114,20 +114,20 @@ section{
     transition: 0.5 ease;
 }
 
-.home .media-icons a{
+.Home .media-icons a{
     color: #fff;
     font-size: 1.6em;
 }
 
-.home .media-icons a:not(:last-child){
+.Home .media-icons a:not(:last-child){
     margin-bottom: 20px;
 }
 
-.home .media-icons a:hover{
+.Home .media-icons a:hover{
     transform: scale(1.3);
 }
 
-.home video{
+.Home video{
     z-index: 000;
     position: absolute;
     top: 0;
@@ -135,6 +135,48 @@ section{
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+.slider-navigation{
+    z-index: 888;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(80px);
+    margin-bottom: 12px;
+}
+
+.slider-navigation .nav-btn{
+    width: 12px;
+    height: 12px;
+    background: #fff;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 0 2px rgb(255, 255, 255, 0.5);
+    transition: 0.3 ease;
+}
+
+.slider-navigation .nav-btn.active{
+    background: #23334A;
+}
+
+.slider-navigation .nav-btn:not(:last-child){
+    margin-right: 20px;
+}
+
+.slider-navigation .nav-btn:hover{
+    transform: scale(1.2);
+}
+
+.video-slide{
+    position: absolute;
+    width: 100%;
+    clip-path: circle(0% at 50%);
+}
+
+.video-slide.active{
+    clip-path: circle(150% at 0 50%);
 }
 
 @media (max-width: 1040px){
@@ -146,7 +188,7 @@ section{
         padding: 100px 20px;
     }
 
-    .home ,.media-icons{
+    .Home ,.media-icons{
         right: 15px;
     }
 
