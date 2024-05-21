@@ -6,7 +6,7 @@
 }
 
 body{
-    background: url(imagens/testefundo.jpg);
+    background: url(imagens/fundocadastro4.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -76,7 +76,18 @@ body{
     z-index: 2;
 }
 
+.login-container{
+    position: absolute;
+    left: 4px;
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    transition: .5s ease-in-out;
+}
+
 .register-container{
+    position: absolute;
+    right: -520px;
     width: 500px;
     display: flex;
     flex-direction: column;
@@ -156,4 +167,18 @@ body{
     box-shadow: 1px 5px 7px 1px rgba(0, 0, 0, 0.2);
     
 }
+
+.check{
+    display: flex;
+    justify-content: space-between;
+    color: #fff;
+    font-size: small;
+    margin-top: 10px;
+}
+
+.check .check2{
+    display: flex;
+    gap: 5px;
+}
+
 

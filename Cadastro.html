@@ -14,12 +14,36 @@
             <p>Lilo & Stich</p>
         </div>
         <div class="nav-botao">
-            <button class="btn white-Btn" id="loginbtn">Login</button>
-            <button class="btn" id="registerbtn">Registrar</button>
+            <button class="btn white-Btn" id="loginbtn" onclick="login()">Login</button>
+            <button class="btn" id="registerbtn" onclick="registrar()">Registrar</button>
         </div>
     </header>
 
     <div class="form-box">
+
+        <div class="login-container" id="login">
+            <div class="top">
+                <span>Não tem uma conta? <a href="#" onclick="register()">Registre-se</a></span>
+                <header class="registrotitulo">Login</header>
+            </div>
+                <div class="input-box">
+                    <input type="text" class="input_field" placeholder="E-mail">
+                </div>
+                <div class="input-box">
+                    <input type="password" class="input_field" placeholder="Senha">
+                </div>
+                <div class="input-box">
+                    <input type="submit" class="submit" value="Registrar">
+                </div>
+                <div class="check">
+                    <div class="check2">
+                        <input type="checkbox" id="register-check">
+                        <label for="register-check">Lembrar de mim</label>
+                    </div>
+            </div>
+        </div>
+
+
         <div class="register-container" id="register">
             <div class="top">
                 <span>Já tem uma conta? <a href="#" onclick="login()">Login</a></span>
@@ -55,5 +79,30 @@
         </div>
     </div>
 </div>
+
+<script>
+    var a = document.getElementById("loginbtn")
+    var b = document.getElementById("registerbtn")
+    var x = document.getElementById("login")
+    var y = document.getElementById("register")
+
+    function login(){
+        x.style.left ="4px";
+        y.style.right = "-520px";
+        a.className += " white-Btn";
+        b.className = "btn";
+        x.style.opacity = 1;
+        y.style.opacity = 0;
+    }
+
+    function registrar(){
+        x.style.left = "-510px";
+        y.style.right = "5px";
+        a.className += "btn";
+        b.className += " white-Btn";
+        x.style.opacity = 0;
+        y.style.opacity = 1;
+    }
+</script>
 </body>
 </html>
