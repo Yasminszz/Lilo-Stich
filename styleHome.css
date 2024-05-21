@@ -284,45 +284,107 @@ section{
 
 .Sobre-Mim{
     height: 100vh;
+    width: 100%;
     overflow: hidden;
     background: #23334A;
     color: rgb(211, 211, 211);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-content: center;
+    gap: 20vh;
+    border: 2px solid;
 }
+ 
 
-.container{
-    width: 350px;
-    height: 500px;
-}
-
-.container:hover > .card-Sobre{
-    cursor: pointer;
-    transform: rotateY(180deg);
-}
-
-.card-Sobre{
-    width: 100%;
-    height: 100%;
+.book {
     position: relative;
-    transition: transform 1500ms;
-    transform-style: preserve-3d;
-}
+    border-radius: 10px;
+    width: 80%;
+    height: 400px;
+    background-color: whitesmoke;
+    -webkit-box-shadow: 1px 1px 12px #000;
+    box-shadow: 1px 1px 12px #000;
+    -webkit-transform: preserve-3d;
+    -ms-transform: preserve-3d;
+    transform: preserve-3d;
+    -webkit-perspective: 2000px;
+    perspective: 2000px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    color: #000;
+  }
 
-.front, .back{
+  .book img{
     width: 100%;
     height: 100%;
-    border-radius: 2rem;
-    box-shadow: 0 0 5px rgba(50, 50, 50, 0.25);
+    object-fit: cover;
     position: absolute;
-    backface-visibility: hidden;
+    top: 0;
+    left: 0;
+  }
+  
+  .cover {
+    top: 0;
+    position: absolute;
+    background-color: #fff;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    cursor: pointer;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+    -webkit-transform-origin: 0;
+    -ms-transform-origin: 0;
+    transform-origin: 0;
+    -webkit-box-shadow: 1px 1px 12px #000;
+    box-shadow: 1px 1px 12px #000;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+  }
+  
+  .book img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  .book:hover .cover {
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+    -webkit-transform: rotatey(-80deg);
+    -ms-transform: rotatey(-80deg);
+    transform: rotatey(-80deg);
+  }
+  
+  .textosobre{
+    align-items: center;
+    flex-direction: column;
+    display: flex;
 }
-
-.front{
-   background-image: url(imagens/eu.jpeg);
-}
-.back{
-    background-image: url(imagens/eusorrir.jpeg);
-    transform: rotateY(180deg) ;
-}
+  .textosobre h1{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    
+  }
 
 
 @media (max-width: 1040px){
