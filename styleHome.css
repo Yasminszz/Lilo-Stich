@@ -136,6 +136,7 @@ section{
     height: 100%;
     object-fit: cover;
 }
+h
 
 .slider-navigation{
     z-index: 888;
@@ -383,6 +384,8 @@ section{
     height: 100%;
     display: flex;
     justify-content: space-between;
+    font-weight: 800;
+    justify-content: center;
     
   }
 

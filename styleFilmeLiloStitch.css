@@ -60,17 +60,81 @@ section{
     padding: 100px 200px;
 }
 
-.Trailler{
+.banner{
     position: relative;
     width: 100%;
     min-height: 100vh;
+    padding: 0 100px;
+    background-color: #23334A;
+    background-position: center;
+    background-size: cover;
     display: flex;
-    justify-content: center;
-    flex-direction: column;
-    background:#23334A ;
+    justify-content: flex-start;
+    align-items: center;
 }
 
-.Trailler .conteudo .iframe{
+.banner .content{
+    max-width: 550px;
+}
+
+.banner .content h2{
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 2.5em;
+    letter-spacing: 0.1em;
+    color: #fff;
+}
+
+.banner .content h2 span{
+    font-weight: 800;
+}
+
+.banner .content p{
+    font-size: 1.2em;
+    font-weight: 300;
+    letter-spacing: 0.02em;
+    line-height: 1.5em;
+    color: #fff;
+    margin: 15px 0 35px;
+}
+
+.play{
+    position: relative;
+    display: inline-flex;
+    justify-content: flex-start;
     align-items: center;
-    align-content: center;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 500;
+    text-decoration: none;
+    letter-spacing: 2px;
+    font-size: 1.2em;
+}
+
+.play img{
+    margin-right: 10px;
+    max-width: 50px;
+}
+
+.trailer{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10000;
+    background: rgba(0, 0, 0, 0.95 );
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.trailer iframe{
+    max-width: 900px;
+    outline: none;
+}
+
+.trailer .close{
+    position: absolute;2
 }
