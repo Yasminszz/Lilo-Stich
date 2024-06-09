@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/styledash.css">
+</head>
+
+<body>
+    <section class="container">
+        <div class="topbar">
+            <div class="logo">
+                <h2>Brand</h2>
+            </div>
+            <i class="fas fa-bell"></i>
+            <div class="user">
+                <p>Olá Yasmin</p>
+            </div>
+        </div>
+        <div class="sidebar">
+            <ul>
+                <li>
+                    <a href="#">
+                        <i class="dashIcon"> <img src="assets/icon/grafico.png" alt=""></i>
+                        <div>Dashboard</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="quizicon"> <img src="assets/icon/lampada.png" alt=""></i>
+                        <div>Quiz</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="homeicon"> <img src="assets/icon/home.png" alt=""></i>
+                        <div>Home</div>
+
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="main">
+            <div class="cards">
+                <div class="card">
+                    <div class="card-conteudo">
+                        <div class="lugar">1° Lugar</div>
+                        <div class="card-nome">Stitch</div>
+                    </div>
+                    <div class="icon-box">
+                        <i class="icon-primeiro"><img src="assets/icon/home.png" alt=""></i>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-conteudo">
+                        <div class="lugar">2° Lugar</div>
+                        <div class="card-nome">Lilo</div>
+                    </div>
+                    <div class="icon-box">
+                        <i class="icon-primeiro"><img src="assets/icon/home.png" alt=""></i>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-conteudo">
+                        <div class="lugar">3° Lugar</div>
+                        <div class="card-nome">Nani</div>
+                    </div>
+                    <div class="icon-box">
+                        <i class="icon-primeiro"><img src="assets/icon/home.png" alt=""></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="charts">
+                <div class="chart">
+                    <h2>Seus Acertos e Erros</h2>
+                    <canvas id="lineChart"></canvas>
+
+                </div>
+                <div class="chart" id="pizza-chart">
+                    <h2>Média de Acertos</h2>
+                    <canvas id="pizzaChart"></canvas>
+
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="chart1.js"></script>
+    <script src="chart2.js"></script>
+</body>
+
+</html>

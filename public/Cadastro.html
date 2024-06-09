@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/styleCadastro.css">
+    <script src="./js/sessao.js"></script>
+
+</head>
+
+<body>
+    <div class="wrapper">
+        <header class="nav">
+            <div class="nav-logo">
+                <p>Lilo & Stitch</p>
+            </div>
+            <div class="nav-botao">
+                <button class="btn white-Btn" id="loginbtn" onclick="login()">Login</button>
+                <button class="btn" id="registerbtn" onclick="registrar()">Registrar</button>
+            </div>
+        </header>
+
+        <div class="form-box">
+
+            <div class="alerta_erro">
+                <div class="card_erro" id="cardErro">
+                    <span id="mensagem_erro"></span>
+                </div>
+            </div>
+
+            <div class="login-container" id="login">
+                <div class="top">
+                    <span>Não tem uma conta? <a href="#" onclick="register()">Registre-se</a></span>
+                    <header class="registrotitulo">Login</header>
+                </div>
+                <div class="input-box">
+                    <input type="text" class="input_field" placeholder="E-mail" id="input_email">
+                </div>
+                <div class="input-box">
+                    <input type="password" class="input_field" placeholder="Senha" id="input_senha">
+                </div>
+                <div class="input-box">
+                    <input type="submit" class="submit" value="Registrar" onclick="entrar()">
+                </div>
+                <div class="check">
+                    <div class="check2">
+                        <input type="checkbox" id="register-check">
+                        <label for="register-check">Lembrar de mim</label>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="register-container" id="register">
+                <div class="top">
+                    <span>Já tem uma conta? <a href="#" onclick="login()">Login</a></span>
+                    <header class="registrotitulo">Registrar-se</header>
+                </div>
+                <div class="two-forms">
+                    <div class="input-box">
+                        <input type="text" class="input_field" placeholder="Primeiro Nome" id="input_nome_cadastro">
+                    </div>
+                    <div class="input-box">
+                        <input type="text" class="input_field" placeholder="Sobrenome" id="input_sobrenome_cadastro">
+                    </div>
+                </div>
+
+                <div class="input-box">
+                    <input type="text" class="input_field" placeholder="E-mail" id="input_email_cadastro">
+                </div>
+                <div class="input-box">
+                    <input type="password" class="input_field" placeholder="Criar uma senha" id="input_senha_cadastro">
+                </div>
+                <div class="input-box">
+                    <input type="password" class="input_field" placeholder="Confirmar Senha" id="input_confirma_cadastro">
+                </div>
+                <div class="input-box">
+                    <input type="submit" class="submit" value="Registrar" onclick="cadastrar()">
+                </div>
+                <div class="check">
+                    <div class="check2">
+                        <input type="checkbox" id="register-check">
+                        <label for="register-check">Lembrar de mim</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var a = document.getElementById("loginbtn")
+        var b = document.getElementById("registerbtn")
+        var x = document.getElementById("login")
+        var y = document.getElementById("register")
+
+        function login() {
+            x.style.left = "4px";
+            y.style.right = "-520px";
+            a.className += " white-Btn";
+            b.className = "btn";
+            x.style.opacity = 1;
+            y.style.opacity = 0;
+        }
+
+        function registrar() {
+
+            x.style.left = "-510px";
+            y.style.right = "5px";
+            a.className += "btn";
+            b.className += " white-Btn";
+            x.style.opacity = 0;
+            y.style.opacity = 1;
+        }
+
+        function cadastrar(){
+            // aguardar();
+
+            //Recupere o valor da nova input pelo nome do id
+            // Agora vá para o método fetch logo abaixo
+            var nomeVar = input_nome_cadastro.value;
+            var sobrenomeVar = input_sobrenome_cadastro.value;
+            var emailVar = input_email_cadastro.value;
+            var senhaVar = input_senha_cadastro.value;
+            var confirmacaoSenhaVar = input_confirma_cadastro.value;
+
+            emailVar = emailVar.toLowerCase();
+
+            // var TamanhoSenha = senhaVar.length;
+            var TerminaCom = emailVar.indexOf('.com');
+            var posicaoArroba = emailVar.indexOf("@");
+
+
+            if (TerminaCom >= 0) {
+                if (posicaoArroba >= 0) {
+                    if (senhaVar.length >= 6) {
+                        if (confirmacaoSenhaVar == senhaVar) {
+                            fetch("/usuarios/cadastrar", {
+                                method: "POST",
+                                headers: {
+                                    "Content-Type": "application/json",
+                                },
+                                body: JSON.stringify({
+                                    // crie um atributo que recebe o valor recuperado aqui
+                                    // Agora vá para o arquivo routes/usuario.js
+                                    nomeServer: nomeVar,
+                                    sobrenomeServer: sobrenomeVar,
+                                    emailServer: emailVar,
+                                    senhaServer: senhaVar
+                                }),
+                            })
+                                .then(function (resposta) {
+                                    console.log("resposta: ", resposta);
+
+                                    if (resposta.ok) {
+                                        cardErro.style.display = "block";
+
+                                        mensagem_erro.innerHTML =
+                                            "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+
+                                        setTimeout(() => {
+                                            window.location = "Cadastro.html";
+                                        }, "9000");
+
+                                        limparFormulario();
+                                        // finalizarAguardar();
+                                    } else {
+                                        throw "Houve um erro ao tentar realizar o cadastro!";
+                                    }
+                                })
+                                .catch(function (resposta) {
+                                    console.log(`#ERRO: ${resposta}`);
+                                    // finalizarAguardar();
+                                });
+                            // window.location.href = "Cadastro.html";
+
+                        } else {
+                            alert("As senhas precisam ser iguais.")
+                        }
+                    } else {
+                        alert("A senha precisa conter no minimo 6 caracteres.")
+                    }
+
+                } else {
+                    alert("O email precisa conter @")
+                }
+            } else {
+                alert("O email precisa terminar com '.com'")
+            }
+
+
+            if (
+                nomeVar == "" ||
+                sobrenomeVar == "" ||
+                emailVar == "" ||
+                senhaVar == "" ||
+                confirmacaoSenhaVar == ""
+            ) {
+                alert("Você só pode prosseguir após preencher todos os campos.");
+
+                // finalizarAguardar();
+                return false;
+            } else {
+                setInterval(sumirMensagem, 5000);
+            }
+
+            // Enviando o valor da nova input
+
+
+            return false;
+
+           
+        }
+
+        function sumirMensagem() {
+            cardErro.style.display = "none";
+        }
+
+        function entrar() {
+        // aguardar();
+
+        var emailVar = input_email.value;
+        var senhaVar = input_senha.value;
+
+        if (emailVar == "" || senhaVar == "") {
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+            // finalizarAguardar();
+            return false;
+        }
+        else {
+            setInterval(sumirMensagem, 5000)
+        }
+
+        console.log("FORM LOGIN: ", emailVar);
+        console.log("FORM SENHA: ", senhaVar);
+
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                emailServer: emailVar,
+                senhaServer: senhaVar
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    // console.log(json);
+                    console.log(JSON.stringify(json));
+
+
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NOME_USUARIO = json.nome;
+                    sessionStorage.ID_USUARIO = json.idUsuario;
+
+                    setTimeout(function () {
+                         window.location = "Dashboard.html";
+                     }, 1000); // apenas para exibir o loading
+
+                });
+
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o login!");
+
+                resposta.text().then(texto => {
+                    alert.error(texto);
+                    // finalizarAguardar(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
+    }
+
+    function sumirMensagem() {
+        cardErro.style.display = "none"
+    }
+
+
+
+
+    </script>
+</body>
+
+</html>

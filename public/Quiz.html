@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz sobre Lilo&Stitch</title>
+    <link rel="stylesheet" href="css/quiz.css">
+</head>
+<body>
+    <div class="cabecalho">
+        <header class="headersite">
+            <a href="index.html"> <img width="300px" src="img/logoheader.png" alt=""></a>
+        </header>
+    </div>
+    <div class="containerInteiro">
+        <div class="container">
+            <h2>Quiz sobre Lilo&Stitch</h2>
+            <p>Teste seus conhecimentos sobre o filme Lilo&Stitch!</p><br><br>
+            <div id="questao"></div>
+            <button id="verdadeiro" class="botaoresposta" onclick="verificarResposta(true)">Verdadeiro</button>
+            <button id="falso" class="botaoresposta" onclick="verificarResposta(false)">Falso</button>
+            <div class="metricas">
+                <div class="acertos" id="acertos"></div>
+                <div class="erros" id="erros"></div>
+            </div>
+            <div class="reiniciarquizz">
+                <button id="reiniciar" onclick="reiniciarQuiz()">Reiniciar Quiz</button>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>
+<script>
+    const perguntas = [
+        { pergunta: "O nome verdadeiro de Stitch é Experimento 626.", resposta: true },
+        { pergunta: "A história de Lilo & Stitch se passa na ilha de Oahu, no Havaí.", resposta: false },
+        { pergunta: "A frase Ohana quer dizer família é um tema central do filme.", resposta: true },
+        { pergunta: "Dr. Jumba Jookiba é o criador de Stitch.", resposta: true },
+        { pergunta: "O filme Lilo & Stitch foi lançado pela primeira vez em 2002.", resposta: true }
+    ];
+    
+    let perguntas_embaralhadas = [];
+    let perguntaAtual = 0;
+    let acertos = 0;
+    let erros = 0;
+
+    function embaralharPerguntas() {
+        perguntas_embaralhadas = perguntas.slice();
+        for (let i = perguntas_embaralhadas.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [perguntas_embaralhadas[i], perguntas_embaralhadas[j]] = [perguntas_embaralhadas[j], perguntas_embaralhadas[i]];
+        }
+    }
+
+    function exibirPergunta() {
+        document.getElementById('questao').innerHTML = perguntas_embaralhadas[perguntaAtual].pergunta;
+        document.getElementById('verdadeiro').style.display = "block";
+        document.getElementById('falso').style.display = "block";
+    }
+
+    function verificarResposta(respostaUsuario) {
+        let resultado = document.createElement('div');
+        if (respostaUsuario == perguntas_embaralhadas[perguntaAtual].resposta) {
+            acertos++;
+            resultado.textContent = "Você acertou!";
+            resultado.style.color = "green";
+        } else {
+            erros++;
+            resultado.textContent = "Você errou!";
+            resultado.style.color = "red";
+        }
+        document.getElementById('questao').appendChild(resultado);
+        document.getElementById('verdadeiro').style.display = "none";
+        document.getElementById('falso').style.display = "none";
+
+        perguntaAtual++;
+        if (perguntaAtual < perguntas_embaralhadas.length) {
+            setTimeout(() => {
+                document.getElementById('questao').removeChild(resultado);
+                exibirPergunta();
+            }, 1500); // Espera 1.5 segundos antes de mostrar a próxima pergunta
+        } else {
+            document.getElementById('questao').innerHTML = "Quiz concluído!";
+                document.getElementById('acertos').style.display = "block";
+                document.getElementById('erros').style.display = "block";
+                document.getElementById('acertos').innerHTML = "Acertos: " + acertos;
+                document.getElementById('erros').innerHTML = "Erros: " + erros;
+                document.getElementById('reiniciar').style.display = "block";
+        }
+    }
+
+    function reiniciarQuiz() {
+        perguntaAtual = 0;
+        acertos = 0;
+        erros = 0;
+        embaralharPerguntas();
+        document.getElementById('reiniciar').style.display = "none";
+        document.getElementById('acertos').style.display = "none";
+        document.getElementById('erros').style.display = "none";
+        exibirPergunta();
+    }
+
+    embaralharPerguntas();
+    exibirPergunta();
+</script>

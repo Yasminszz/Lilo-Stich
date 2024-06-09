@@ -1,0 +1,128 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background-color: #23334A; 
+}
+
+.navbar {
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #1d4174; 
+    padding-top: 20px;
+}
+
+.navbar h2 {
+    color: #fff;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.navbar nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.navbar nav ul li {
+    padding: 10px;
+}
+
+.navbar nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+}
+
+.navbar nav ul li a:hover {
+    background-color: #fff; /* Mudança de cor ao passar o mouse */
+    color: #23334A;
+}
+
+.content {
+    margin-left: 250px;
+    padding: 20px;
+}
+
+header {
+    background-image: url(imagens/Lili\ &\ Stitch.jpg);
+    padding: 25px;
+    background-size: cover;
+  background-repeat: no-repeat;
+}
+
+main {
+    color: #fff;
+}
+
+.inicio {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.inicio p {
+    color: #fff;
+    font-size: 18px;
+    margin: 0;
+}
+
+.graficos {
+    display: flex; 
+    margin-left: 430px;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.graficos div {
+    margin-left: 20px; 
+}
+
+.graficos canvas {
+    display: flex;
+    max-width: 560px;
+    max-height: 400px;
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+h1 {
+    display: flex;
+    color: antiquewhite;
+    font-size: xx-large;
+}
+
+h2 {
+    display: flex;
+    color: antiquewhite;
+    justify-content: space-evenly;
+}
+
+h3 {
+    display: flex;
+    color: antiquewhite;
+    margin-left: 165px;
+}
+
+.barras {
+    display: flex;
+    justify-content: center;
+    height: 340px;
+    width: 730px;
+}
+
+.kpi {
+    display: flex;
+    margin-top: 70px;
+    color: #fff;
+    font-size: 15px;
+    background-color: #23334A;
+    height: 175px;
+    border-radius: 14px;
+    align-items: center;
+    width: 150vh;
+    border-radius: 30px;
+    padding: 13px;
+}

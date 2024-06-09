@@ -1,0 +1,117 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 0;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 500px;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgb(238, 213, 238);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.containerInteiro{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    background-image: url(https://i.pinimg.com/originals/1a/4e/14/1a4e14ae84c95562bda3872bd2277621.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+
+.cabecalho {
+    width: 100%;
+    background-color: #23334A;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    height: 9vh;
+    position: fixed;
+}
+
+.cabecalho .headersite {
+    display: flex;
+    padding-left: 510px;
+    align-items: center;
+    
+  }
+
+.containerInteiro .cabecalho{
+    width: 100%;
+    background-color: #23334A;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    height: 9vh;
+    position: fixed;
+  
+  }  
+
+h2 {
+    color: #333;
+}
+p {
+    color: #666;
+}
+button {
+    background-color: #23334A;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+button:hover {
+    background-color: #60e870;
+}
+#result {
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+.acertos, .erros {
+    display: none;
+    color: white;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.acertos {
+    background-color: green;
+}
+
+.erros {
+    background-color: red;
+}
+
+#reiniciar {
+    display: none;
+    justify-content: center;
+}
+
+.metricas {
+    display: flex;
+    justify-content: center;
+}
+
+.reiniciarquizz {
+    display: flex;
+    justify-content: center;
+}

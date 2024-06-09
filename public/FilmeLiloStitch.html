@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="css/styleFilmeLiloStitch.css" />
+  </head>
+  <body>
+    <header>
+      <a href="#" class="brand">Lilo e Stitch</a>
+      <div class="menu-btn"></div>
+      <div class="navigation">
+        <div class="navigation-itens">
+          <a href="#">Home</a>
+          <a href="#">Sobre o filme</a>
+          <a href="#">Sobre mim</a>
+          <a href="#">Cadastro</a>
+          <a href="#">Login</a>
+        </div>
+      </div>
+    </header>
+
+    <section class="banner">
+        <div class="content">
+          <h2><span>Lilo</span> & <br> <span>Stitch</span> <br>O filme</h2>
+          <p>Uma garotinha solitária chamada Lilo adota um "bichinho" de estimação e passa a chamá-lo de Stitch. Só que ela não sabe que o pequeno ser é uma perigosa experimentação genética que fugiu de um planeta alienígena. O único interesse de Stitch em relação a Lilo é usá-la como escudo para se proteger dos caçadores alienígenas que vieram capturá-lo.</p>
+
+          <a href="#" class="play" onclick="toggle()"><img src="../public/assets/imgs/play.png" alt="">Asista ao Trailer!</a>
+        </div>
+    </section>
+    <div class="trailer">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/9OAC55UWAQs?si=1lvlUvS4jkMs7TXT" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen controls="true"></iframe>
+      <img src="../public/assets/icon/close.png" alt="" class="close" onclick="toggle()">
+    </div>
+
+    <section class="info">
+      <div class="info-filme">
+        <h1>Informações gerais sobre o filme!</h1>
+      </div>
+
+    </section>
+
+    <section class="elenco">
+      <div class="conteudo-elenco">
+        <h1>Diretores</h1>
+      </div>
+    </section>
+
+    <script>
+      function toggle(){
+        var trailer = document.querySelector('.trailer');
+        trailer.classList.toggle('active')
+      }
+    </script>
+  </body>
+</html>
