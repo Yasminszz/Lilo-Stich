@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz sobre Lilo&Stitch</title>
     <link rel="stylesheet" href="css/quiz.css">
 </head>
+
 <body>
     <div class="cabecalho">
         <header class="headersite">
@@ -31,6 +33,7 @@
 
 
 </body>
+
 </html>
 <script>
     const perguntas = [
@@ -40,7 +43,7 @@
         { pergunta: "Dr. Jumba Jookiba é o criador de Stitch.", resposta: true },
         { pergunta: "O filme Lilo & Stitch foi lançado pela primeira vez em 2002.", resposta: true }
     ];
-    
+
     let perguntas_embaralhadas = [];
     let perguntaAtual = 0;
     let acertos = 0;
@@ -83,11 +86,23 @@
             }, 1500); // Espera 1.5 segundos antes de mostrar a próxima pergunta
         } else {
             document.getElementById('questao').innerHTML = "Quiz concluído!";
-                document.getElementById('acertos').style.display = "block";
-                document.getElementById('erros').style.display = "block";
-                document.getElementById('acertos').innerHTML = "Acertos: " + acertos;
-                document.getElementById('erros').innerHTML = "Erros: " + erros;
-                document.getElementById('reiniciar').style.display = "block";
+            document.getElementById('acertos').style.display = "block";
+            document.getElementById('erros').style.display = "block";
+            document.getElementById('acertos').innerHTML = "Acertos: " + acertos;
+            document.getElementById('erros').innerHTML = "Erros: " + erros;
+            document.getElementById('reiniciar').style.display = "block";
+            
+            fetch("/getQuizRoutes/tentativa", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    acertosServer: acertos,
+                    errosServer: erros
+
+                }),
+            })
         }
     }
 
@@ -100,6 +115,7 @@
         document.getElementById('acertos').style.display = "none";
         document.getElementById('erros').style.display = "none";
         exibirPergunta();
+
     }
 
     embaralharPerguntas();

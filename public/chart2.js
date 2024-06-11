@@ -1,6 +1,6 @@
-const ctx = document.getElementById('pizzaChart');
+const graficoPizza = document.getElementById('pizzaChart');
 
-  new Chart(ctx, {
+  new Chart(graficoPizza, {
     type: 'doughnut',
     data: {
       labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],

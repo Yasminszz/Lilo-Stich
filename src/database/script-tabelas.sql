@@ -15,3 +15,9 @@ NomeUsuario Varchar(50),
 SobrenomeUsuario varchar (50),
 EmailUsuario varchar(50),
 SenhaUsuario varchar(50));
+
+create table quiz
+(IDquiz int primary key auto_increment,
+acertos int,
+erros int);
+
